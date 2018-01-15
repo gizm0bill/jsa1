@@ -5,7 +5,10 @@ const
   passport = require('passport'),
   lusca = require('lusca'),
   bodyParser = require('body-parser'),
-  compression = require('compression');
+  compression = require('compression'),
+  cors = require('cors'),
+  expressValidator = require('express-validator');
+;
 
 const app = express();
 
@@ -13,7 +16,11 @@ app.set( 'host', '0.0.0.0' );
 app.set( 'port', process.env.PORT || 8080 );
 app.set( 'views', path.join(__dirname, 'views') );
 app.set( 'view engine', 'pug' );
+app.use( cors() );
 app.use( compression() );
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded({ extended: true }) );
+app.use( expressValidator() )
 app.use( passport.initialize() );
 app.use( passport.session() );
 app.use( lusca.xframe('SAMEORIGIN'));
@@ -31,6 +38,7 @@ const
   urlCtrl = require('./ctrl/url')
 
 app.use(apiCtrl);
+app.use(userCtrl);
 app.use(urlCtrl);
 
 app.listen(app.get('port'), () => {

@@ -10,7 +10,15 @@ class Login extends React.Component<{}, {email: string, password: string}> {
     }
 
     login = async () => {
-        // TODO: Login code here.
+      const { email, password } = this.state;
+      fetch('http://0.0.0.0:8080/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      }).then( v => console.log(v) );
     }
 
     render() {
@@ -21,7 +29,7 @@ class Login extends React.Component<{}, {email: string, password: string}> {
                     id="email"
                     type="text"
                     value={this.state.email}
-                    placeholder="Email address"
+                    placeholder="Email"
                     onChange={e => this.setState({ email: e.target.value })}
                 />
                 <br />
