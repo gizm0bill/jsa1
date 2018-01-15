@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "lusca": "^1.5.2",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "comma-dangle": 0,
+      "consistent-return": 0,
+      "no-param-reassign": 0,
+      "no-underscore-dangle": 0,
+      "no-shadow": 0,
+      "no-console": 0,
+      "no-plusplus": 0,
+      "no-unused-expressions": 0,
+      "space-in-parens": 0,
+      "new-parens": 0
+    }
+  },
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": ">=5.6.0"
+  }
+}

@@ -1,0 +1,20 @@
+extends ./layout
+
+block content
+  h1 /u/#{shortUrl}
+  br
+  p#wait
+    | Redirecting to
+    |
+    a( href='#{url}' ) #{url}
+    |
+    | in #[span] seconds
+
+  script.
+    let seconds = 30;
+    setInterval( () =>
+    {
+      if ( seconds < 0 ) document.location.href = '#{url}';
+      else document.querySelector('#wait span').textContent = seconds;
+      seconds -= 1;
+    }, 1000);
